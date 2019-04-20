@@ -1,0 +1,13 @@
+- name: smoke-test load-balancer
+  hosts: frontends
+  become: yes
+  tasks: 
+  - name: Test load balancer uri
+    uri:
+      url: "http://{{ ansible_host }}"
+      method: GET
+      status_code: 200
+      return_content: yes
+    register: http_verify
+    failed_when: "'Ansible has done its job' not in http_verify.content"
+

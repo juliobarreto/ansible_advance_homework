@@ -1,0 +1,4 @@
+---
+# vars file for app-tier
+tomcat_ps: tomcat
+tomcat_path: /usr/share/tomcat/webapps/ROOT

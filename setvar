@@ -1,0 +1,10 @@
+export TOWER_GUID=52dd
+export OSP_GUID=745a
+export OPENTLC_LOGIN=jbarreto-redhat.com
+export OPENTLC_PASSWORD=Dr@con1an
+export GITHUB_REPO=https://github.com/juliobarreto/ansible_advance_homework
+export github_repo=https://github.com/juliobarreto/ansible_advance_homework
+export JQ_REPO_BASE=http://www.opentlc.com/download/ansible_bootcamp
+export REGION=sa-east-1
+export RH_MAIL_ID=jbarreto@rehat.com
+export ANSIBLE_ADVANCE_GUID=745a

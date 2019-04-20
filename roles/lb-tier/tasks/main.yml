@@ -1,0 +1,22 @@
+---
+# tasks file for lb-tier
+- name: Instalar paquetes haproxy
+  yum:
+    name: "{{ load_balancer }}"
+    state: latest
+
+- name: Habilitar servicio haproxy en inicio
+  service: 
+    name: "{{ load_balancer }}"
+    enabled: yes
+
+- name: Configurar haproxy como load balancer
+  template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+
+- name: Iniciar servicio haproxy
+  service: 
+    name: "{{ load_balancer }}"
+    state: restarted

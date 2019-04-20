@@ -1,0 +1,25 @@
+---
+# vars file for base-config
+repos_redhat:
+- name: rhel-7-server-rpms
+  description: Red Hat Enterprise Linux 7
+  baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-rpms
+ 
+- name: rhel-7-server-rh-common-rpms
+  description: Red Hat Enterprise Linux 7 Common
+  baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-rh-common-rpms
+
+- name: rhel-7-server-extras-rpms
+  description: Red Hat Enterprise Linux 7 Extras
+  baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-extras-rpms
+
+- name: rhel-7-server-optional-rpms
+  description: Red Hat Enterprise Linux 7 Optional
+  baseurl: http://admin.na.shared.opentlc.com/repos/ocp/3.6/rhel-7-server-optional-rpms
+
+repos_epel:
+- name: epel
+  description: Extra Packages for Enterprise Linux 7 
+  baseurl: http://download.fedoraproject.org/pub/epel/7/$basearch
+  mirrorlist: http://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch
+  failovermethod: priority

@@ -1,0 +1,38 @@
+---
+# tasks file for base-config
+- name: Habilitar sudo sin tty para algunos comandos ansible
+  replace:
+    path: /etc/sudoers
+    regexp: '^Defaults\s*requiretty'
+    replace: 'Defaults  !requiretty'
+    backup: yes
+
+- name: Adicionar Repos Red Hat
+  yum_repository: 
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    enabled: yes
+    gpgcheck: no
+    file: open_three-tier-app
+  with_items: "{{ repos_redhat }}"
+
+- name: Adicionar Repo Epel
+  yum_repository: 
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    baseurl: "{{ item.baseurl }}"
+    mirrorlist: "{{ item.mirrorlist }}"
+    failovermethod: "{{ item.failovermethod }}"
+    enabled: yes
+    gpgcheck: no
+    file: open_three-tier-app
+  with_items: "{{ repos_epel }}"
+
+- name: Instalar paquetes base
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - httpie
+    - python-pip

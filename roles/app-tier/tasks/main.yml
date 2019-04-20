@@ -1,0 +1,22 @@
+---
+# tasks file for app-tier
+- name: Instalar paquetes tomcat
+  yum:
+    name: "{{ tomcat_ps }}"
+    state: latest
+
+- name: Crear directorio root tomcat
+  file:
+    path: "{{ tomcat_path }}"
+    state: directory
+
+- name: Copiar index.html en path 
+  template:
+    src: index.html.j2
+    dest: "{{ tomcat_path }}/index.html"
+    mode: 0644
+
+- name: Reiniciar servicio tomcat
+  service: 
+    name: "{{ tomcat_ps }}"
+    state: restarted
